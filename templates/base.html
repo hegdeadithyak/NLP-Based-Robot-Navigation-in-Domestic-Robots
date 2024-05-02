@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Serving Robot</title>
+</head>
+<body>
+    <input type="text" id="input" name="input" placeholder="Table Number">
+    <button onclick="send()">Submit</button>
+    <script>
+        function send(){
+            var input = document.getElementById("input").value;
+            fetch('/run_script', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'input=' + encodeURIComponent(input),
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    
+</body>
+</html>
