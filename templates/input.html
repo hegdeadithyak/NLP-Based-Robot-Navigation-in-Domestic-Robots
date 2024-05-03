@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<input type="text" id="input" name="input" placeholder="Table Number">
+<script>
+    function send() {
+        var input = document.getElementById("input").value;
+        window.location.href = "/table/" + input;
+    }
+</script>
+{% endblock %}
